@@ -26,14 +26,6 @@ public class EmployeeService {
         return salaryIndexationPercent;
     }
 
-    public void setSizeOfCompany(int sizeOfCompany) {
-        this.sizeOfCompany = sizeOfCompany;
-    }
-
-    public void setEmployee(Employee[] employee) {
-        this.employee = employee;
-    }
-
     public void printEmployeesList() {
         for (int i = 0; i < getSizeOfCompany(); i++) {
             System.out.println(employee[i].toString());

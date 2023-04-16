@@ -20,12 +20,14 @@ public class EmployeeDepartmentService {
         this.employee = employee;
         this.department = department;
     }
+
     public EmployeeDepartmentService(int sizeOfCompany, Employee[] employee, String department, int salaryIndexationPercent) {
         this.sizeOfCompany = sizeOfCompany;
         this.employee = employee;
         this.department = department;
         this.salaryIndexationPercent = salaryIndexationPercent;
     }
+
     public EmployeeDepartmentService(int departmentSalaryBorder, int sizeOfCompany, Employee[] employee, String department) {
         this.sizeOfCompany = sizeOfCompany;
         this.employee = employee;
@@ -36,6 +38,7 @@ public class EmployeeDepartmentService {
     public int getSizeOfCompany() {
         return sizeOfCompany;
     }
+
     public String getDepartment() {
         return department;
     }
@@ -61,6 +64,7 @@ public class EmployeeDepartmentService {
         }
         return employee[minDepartmentSalaryId];
     }
+
     public Employee maxDepartmentSalary() {
         maxDepartmentSalaryId = 0;
         maxDepartmentSalary = Integer.MIN_VALUE;
@@ -84,6 +88,7 @@ public class EmployeeDepartmentService {
         }
         return sumDepartmentSalary;
     }
+
     public int countDepartmentEmployees() {
         int countDepartmentEmployees = 0;
         for (int i = 0; i < getSizeOfCompany(); i++) {
@@ -98,6 +103,7 @@ public class EmployeeDepartmentService {
         averageDepartmentSalary = sumDepartmentSalary() / countDepartmentEmployees();
         return averageDepartmentSalary;
     }
+
     public void setDepartmentSalaryOnPercent() {
         int newSalary;
         for (int i = 0; i < getSizeOfCompany(); i++) {
@@ -107,12 +113,15 @@ public class EmployeeDepartmentService {
             }
         }
     }
+
     public String printMinDepartmentSalary() {
         return minDepartmentSalary().getFIO().toString() + ", зарплата " + new DecimalFormat("###,###").format(minDepartmentSalary().getSalary()) + " $ в месяц, id = " + minDepartmentSalary().getId();
     }
+
     public String printMaxDepartmentSalary() {
         return maxDepartmentSalary().getFIO().toString() + ", зарплата " + new DecimalFormat("###,###").format(maxDepartmentSalary().getSalary()) + " $ в месяц, id = " + maxDepartmentSalary().getId();
     }
+
     public void printDepartmentEmployees() {
         for (int i = 0; i < getSizeOfCompany(); i++) {
             if (getDepartment().equals(employee[i].getDepartment())) {
@@ -121,6 +130,7 @@ public class EmployeeDepartmentService {
         }
         System.out.println();
     }
+
     public void showLessSalary() {
         System.out.println("Перечень сотрудников отдела " + getDepartment() + ", зарплата которых меньше " + getDepartmentSalaryBorder() + " $:");
         for (int i = 0; i < getSizeOfCompany(); i++) {
@@ -132,6 +142,7 @@ public class EmployeeDepartmentService {
         }
         System.out.println();
     }
+
     public void showAboveSalary() {
         System.out.println("Перечень сотрудников отдела " + getDepartment() + ", зарплата которых больше " + getDepartmentSalaryBorder() + " $:");
         for (int i = 0; i < getSizeOfCompany(); i++) {

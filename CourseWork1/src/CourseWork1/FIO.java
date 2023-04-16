@@ -1,9 +1,9 @@
 package CourseWork1;
 
 public class FIO {
-    String surname;
-    String name;
-    String secondName;
+    private String surname;
+    private String name;
+    private String secondName;
 
     public FIO(String surname, String name, String secondName) {
         this.surname = surname;
@@ -25,6 +25,6 @@ public class FIO {
 
     @Override
     public String toString() {
-        return "ФИО: " + surname + " " + name + " " + secondName;
+        return "ФИО: " + getSurname() + " " + getName() + " " + getSecondName();
     }
 }

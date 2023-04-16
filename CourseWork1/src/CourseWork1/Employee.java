@@ -31,15 +31,14 @@ public class Employee {
         return id;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
     public void setSalary(int salary) {
         this.salary = salary;
     }
+    public void setDepartment(String department) {
+        this.department = department;
+    }
     @Override
     public String toString() {
-        return fio.toString() + ", отдел " + getDepartment() + ", зарплата " + new DecimalFormat("###,###").format(salary) + " $ в месяц, id = " + id;
+        return getFIO().toString() + ", отдел " + getDepartment() + ", зарплата " + new DecimalFormat("###,###").format(getSalary()) + " $ в месяц, id = " + getId();
     }
 }

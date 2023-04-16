@@ -104,5 +104,31 @@ public class Main {
 
         // Повышенная сложность - Вывод всех сотрудников с зарплатой больше (или равно) числа
         new EmployeeDepartmentService(departmentSalaryBorder, sizeOfCompany, employee, department).showAboveSalary();
+
+        System.out.println();
+        System.out.println("Очень сложно");
+        System.out.println();
+
+        // Очень сложно - Перенести данные о сотрудниках в класс EmployeeBook
+        Employee [] employeeBook = new Employee[sizeOfCompany];
+        System.arraycopy(employee, 0, employeeBook, 0, sizeOfCompany);
+        new EmployeeBook(employeeBook);
+        new EmployeeService(sizeOfCompany, employeeBook).printEmployeesList();
+
+        // Очень сложно - Добавление нового сотрудника
+        employeeBook = new EmployeeBook(employeeBook).createNewEmployee("Ленин", "Владимир", "Ильич", "2", random.nextInt(100_000), new Counter().Counter());
+        new EmployeeBook(employeeBook).printEmployeeBook();
+
+        // Очень сложно - Удаление старого сотрудника по ФИО
+        employeeBook = new EmployeeBook(employeeBook).deleteOldEmployee("Путин", "Владимир", "Владимирович");
+        new EmployeeBook(employeeBook).printEmployeeBook();
+
+        // Очень сложно - Изменение зарплаты сотрудника
+        employeeBook = new EmployeeBook(employeeBook).changeEmployeeSalary("Ленин", "Владимир", "Ильич", 20_000);
+        new EmployeeBook(employeeBook).printEmployeeBook();
+
+        // Очень сложно - Изменение отдела сотрудника
+        employeeBook = new EmployeeBook(employeeBook).changeEmployeeDepartment("Ленин", "Владимир", "Ильич", "1");
+        new EmployeeBook(employeeBook).printEmployeeBook();
     }
 }
