@@ -38,9 +38,8 @@ public class Employee {
     public void setSalary(int salary) {
         this.salary = salary;
     }
-
     @Override
     public String toString() {
-        return fio.toString() + ", отдел " + department + ", зарплата " + new DecimalFormat("###,###").format(salary) + " $ в месяц, id = " + id;
+        return fio.toString() + ", отдел " + getDepartment() + ", зарплата " + new DecimalFormat("###,###").format(salary) + " $ в месяц, id = " + id;
     }
 }
