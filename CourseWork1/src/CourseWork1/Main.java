@@ -28,16 +28,16 @@ public class Main {
         fio[9] = new FIO("Путин", "Владимир", "Владимирович");
 
         // Отделы: 1 - Боли, 2 - Мучений, 3 - Страданий, 4 - Ужаса, 5 - Горя
-        employee[0] = new Employee(fio[0],"1", random.nextInt(100_000), new Counter().Counter());
-        employee[1] = new Employee(fio[1],"2", random.nextInt(100_000), new Counter().Counter());
-        employee[2] = new Employee(fio[2],"1", random.nextInt(100_000), new Counter().Counter());
-        employee[3] = new Employee(fio[3],"3", random.nextInt(100_000), new Counter().Counter());
-        employee[4] = new Employee(fio[4],"4", random.nextInt(100_000), new Counter().Counter());
-        employee[5] = new Employee(fio[5],"3", random.nextInt(100_000), new Counter().Counter());
-        employee[6] = new Employee(fio[6],"5", random.nextInt(100_000), new Counter().Counter());
-        employee[7] = new Employee(fio[7],"5", random.nextInt(100_000), new Counter().Counter());
-        employee[8] = new Employee(fio[8],"4", random.nextInt(100_000), new Counter().Counter());
-        employee[9] = new Employee(fio[9],"2", random.nextInt(100_000), new Counter().Counter());
+        employee[0] = new Employee(fio[0],"1", random.nextInt(100_000));
+        employee[1] = new Employee(fio[1],"2", random.nextInt(100_000));
+        employee[2] = new Employee(fio[2],"1", random.nextInt(100_000));
+        employee[3] = new Employee(fio[3],"3", random.nextInt(100_000));
+        employee[4] = new Employee(fio[4],"4", random.nextInt(100_000));
+        employee[5] = new Employee(fio[5],"3", random.nextInt(100_000));
+        employee[6] = new Employee(fio[6],"5", random.nextInt(100_000));
+        employee[7] = new Employee(fio[7],"5", random.nextInt(100_000));
+        employee[8] = new Employee(fio[8],"4", random.nextInt(100_000));
+        employee[9] = new Employee(fio[9],"2", random.nextInt(100_000));
 
         System.out.println("Базовый уровень");
         System.out.println();
@@ -116,7 +116,7 @@ public class Main {
         new EmployeeService(sizeOfCompany, employeeBook).printEmployeesList();
 
         // Очень сложно - Добавление нового сотрудника
-        employeeBook = new EmployeeBook(employeeBook).createNewEmployee("Ленин", "Владимир", "Ильич", "2", random.nextInt(100_000), new Counter().Counter());
+        employeeBook = new EmployeeBook(employeeBook).createNewEmployee("Ленин", "Владимир", "Ильич", "2", random.nextInt(100_000), Employee.Counter());
         new EmployeeBook(employeeBook).printEmployeeBook();
 
         // Очень сложно - Удаление старого сотрудника по ФИО

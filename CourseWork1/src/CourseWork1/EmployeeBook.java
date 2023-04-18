@@ -21,7 +21,7 @@ public class EmployeeBook {
         this.salary = salary;
         this.id = id;
         FIO newFIO = new FIO(surname, name, secondName);
-        Employee newEmployee = new Employee(newFIO, department, salary, id);
+        Employee newEmployee = new Employee(newFIO, department, salary);
         Employee[] newEmployeeBook = new Employee[employeeBook.length + 1];
         for (int i = 0; i < employeeBook.length; i++) {
             newEmployeeBook[i] = employeeBook[i];
@@ -93,12 +93,8 @@ public class EmployeeBook {
         int position = 0;
         for (int i = 0; i < employeeBook.length; i++) {
             FIO currentFIO = employeeBook[i].getFIO();
-            if (currentFIO.getSurname().equals(oldFIO.getSurname())) {
-                if (currentFIO.getName().equals(oldFIO.getName())) {
-                    if (currentFIO.getSurname().equals(oldFIO.getSurname())) {
-                        position = i;
-                    }
-                }
+            if (currentFIO.equals(oldFIO)) {
+                position = i;
             }
         }
         employeeBook[position].setDepartment(department);

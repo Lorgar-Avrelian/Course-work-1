@@ -7,12 +7,17 @@ public class Employee {
     private String department;
     private int salary;
     private final int id;
+    private static int counter;
 
-    public Employee(FIO fio, String department, int salary, int id) {
+    public static int Counter() {
+        return counter++;
+    }
+
+    public Employee(FIO fio, String department, int salary) {
         this.fio = fio;
         this.department = department;
         this.salary = salary;
-        this.id = id;
+        this.id = Counter();
     }
 
     public FIO getFIO() {

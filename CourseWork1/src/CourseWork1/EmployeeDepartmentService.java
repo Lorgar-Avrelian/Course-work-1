@@ -8,12 +8,6 @@ public class EmployeeDepartmentService {
     private final String department;
     private int departmentSalaryBorder;
     private int salaryIndexationPercent;
-    private static int minDepartmentSalary;
-    private static int maxDepartmentSalary;
-    private static int sumDepartmentSalary;
-    private static int averageDepartmentSalary;
-    private static int minDepartmentSalaryId;
-    private static int maxDepartmentSalaryId;
 
     public EmployeeDepartmentService(int sizeOfCompany, Employee[] employee, String department) {
         this.sizeOfCompany = sizeOfCompany;
@@ -52,8 +46,8 @@ public class EmployeeDepartmentService {
     }
 
     public Employee minDepartmentSalary() {
-        minDepartmentSalaryId = 0;
-        minDepartmentSalary = Integer.MAX_VALUE;
+        int minDepartmentSalaryId = 0;
+        int minDepartmentSalary = Integer.MAX_VALUE;
         for (int i = 0; i < getSizeOfCompany(); i++) {
             if (department.equals(employee[i].getDepartment())) {
                 if (minDepartmentSalary >= employee[i].getSalary()) {
@@ -66,8 +60,8 @@ public class EmployeeDepartmentService {
     }
 
     public Employee maxDepartmentSalary() {
-        maxDepartmentSalaryId = 0;
-        maxDepartmentSalary = Integer.MIN_VALUE;
+        int maxDepartmentSalaryId = 0;
+        int maxDepartmentSalary = Integer.MIN_VALUE;
         for (int i = 0; i < getSizeOfCompany(); i++) {
             if (department.equals(employee[i].getDepartment())) {
                 if (maxDepartmentSalary <= employee[i].getSalary()) {
@@ -80,7 +74,7 @@ public class EmployeeDepartmentService {
     }
 
     public int sumDepartmentSalary() {
-        sumDepartmentSalary = 0;
+        int sumDepartmentSalary = 0;
         for (int i = 0; i < getSizeOfCompany(); i++) {
             if (department.equals(employee[i].getDepartment())) {
                 sumDepartmentSalary += employee[i].getSalary();
@@ -100,7 +94,7 @@ public class EmployeeDepartmentService {
     }
 
     public int averageDepartmentSalary() {
-        averageDepartmentSalary = sumDepartmentSalary() / countDepartmentEmployees();
+        int averageDepartmentSalary = sumDepartmentSalary() / countDepartmentEmployees();
         return averageDepartmentSalary;
     }
 
