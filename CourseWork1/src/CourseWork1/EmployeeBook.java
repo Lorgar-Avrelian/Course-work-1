@@ -2,6 +2,7 @@ package CourseWork1;
 
 public class EmployeeBook {
     private Employee[] employeeBook;
+    private static int idCounter;
     private String department;
     private int id;
     private int salary;
@@ -13,13 +14,31 @@ public class EmployeeBook {
         this.employeeBook = employeeBook;
     }
 
-    public Employee[] createNewEmployee(String surname, String name, String secondName, String department, int salary, int id) {
+    public Employee[] createNewEmployee(String surname, String name, String secondName, String department, int salary) {
+        idCounter++;
         this.surname = surname;
         this.name = name;
         this.secondName = secondName;
         this.department = department;
         this.salary = salary;
-        this.id = id;
+        this.id = idCounter;
+        FIO defaultFIO = new FIO("Фамилия", "Имя", "Отчество");
+        int position = 0;
+        for (int i = 0; i < employeeBook.length; i++) {
+            FIO currentFIO = employeeBook[i].getFIO();
+            if (currentFIO.equals(defaultFIO)) {
+                position = i;
+            }
+        }
+        Employee[] cutEmployeeBook = new Employee[employeeBook.length - 1];
+        for (int i = 0; i < cutEmployeeBook.length; i++) {
+            if (i < position) {
+                cutEmployeeBook[i] = employeeBook[i];
+            } else {
+                cutEmployeeBook[i] = employeeBook[i + 1];
+            }
+        }
+        employeeBook = cutEmployeeBook;
         FIO newFIO = new FIO(surname, name, secondName);
         Employee newEmployee = new Employee(newFIO, department, salary);
         Employee[] newEmployeeBook = new Employee[employeeBook.length + 1];
@@ -39,12 +58,8 @@ public class EmployeeBook {
         int position = 0;
         for (int i = 0; i < employeeBook.length; i++) {
             FIO currentFIO = employeeBook[i].getFIO();
-            if (currentFIO.getSurname().equals(oldFIO.getSurname())) {
-                if (currentFIO.getName().equals(oldFIO.getName())) {
-                    if (currentFIO.getSurname().equals(oldFIO.getSurname())) {
-                        position = i;
-                    }
-                }
+            if (currentFIO.equals(oldFIO)) {
+                position = i;
             }
         }
         System.out.println(employeeBook[position].getFIO().toString() + " удален");

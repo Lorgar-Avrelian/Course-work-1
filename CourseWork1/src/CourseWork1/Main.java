@@ -116,7 +116,7 @@ public class Main {
         new EmployeeService(sizeOfCompany, employeeBook).printEmployeesList();
 
         // Очень сложно - Добавление нового сотрудника
-        employeeBook = new EmployeeBook(employeeBook).createNewEmployee("Ленин", "Владимир", "Ильич", "2", random.nextInt(100_000), Employee.Counter());
+        employeeBook = new EmployeeBook(employeeBook).createNewEmployee("Ленин", "Владимир", "Ильич", "2", random.nextInt(100_000));
         new EmployeeBook(employeeBook).printEmployeeBook();
 
         // Очень сложно - Удаление старого сотрудника по ФИО

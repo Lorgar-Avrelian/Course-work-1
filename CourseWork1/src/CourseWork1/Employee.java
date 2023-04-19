@@ -7,17 +7,21 @@ public class Employee {
     private String department;
     private int salary;
     private final int id;
-    private static int counter;
-
-    public static int Counter() {
-        return counter++;
-    }
+    private static int idCounter;
 
     public Employee(FIO fio, String department, int salary) {
-        this.fio = fio;
-        this.department = department;
-        this.salary = salary;
-        this.id = Counter();
+        idCounter++;
+        if (fio == null) {
+            this.fio = new FIO("Фамилия", "Имя", "Отчество");
+            this.department = "Отдел";
+            this.salary = 0;
+            this.id = idCounter;
+        } else {
+            this.fio = fio;
+            this.department = department;
+            this.salary = salary;
+            this.id = idCounter;
+        }
     }
 
     public FIO getFIO() {
@@ -39,9 +43,11 @@ public class Employee {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
     public void setDepartment(String department) {
         this.department = department;
     }
+
     @Override
     public String toString() {
         return getFIO().toString() + ", отдел " + getDepartment() + ", зарплата " + new DecimalFormat("###,###").format(getSalary()) + " $ в месяц, id = " + getId();

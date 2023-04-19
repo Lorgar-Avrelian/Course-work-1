@@ -1,5 +1,7 @@
 package CourseWork1;
 
+import java.util.Objects;
+
 public class FIO {
     private String surname;
     private String name;
@@ -40,11 +42,16 @@ public class FIO {
         return "ФИО: " + getSurname() + " " + getName() + " " + getSecondName();
     }
 
-    public boolean equals(FIO fio) {
-        if (fio.getSurname().equals(this.getSurname()) && fio.getName().equals(this.getName()) && fio.getSurname().equals(this.getSurname())) {
-            return true;
-        } else {
-            return false;
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FIO)) return false;
+        FIO fio = (FIO) o;
+        return surname.equals(fio.surname) && name.equals(fio.name) && secondName.equals(fio.secondName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(surname, name, secondName);
     }
 }
