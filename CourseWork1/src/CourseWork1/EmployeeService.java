@@ -111,7 +111,7 @@ public class EmployeeService {
         }
     }
 
-    public Employee minDepartmentSalary() {
+    public Employee minDepartmentSalary(String department) {
         int minDepartmentSalaryId = 0;
         int minDepartmentSalary = Integer.MAX_VALUE;
         for (int i = 0; i < getSizeOfCompany(); i++) {
@@ -125,7 +125,7 @@ public class EmployeeService {
         return employee[minDepartmentSalaryId];
     }
 
-    public Employee maxDepartmentSalary() {
+    public Employee maxDepartmentSalary(String department) {
         int maxDepartmentSalaryId = 0;
         int maxDepartmentSalary = Integer.MIN_VALUE;
         for (int i = 0; i < getSizeOfCompany(); i++) {
@@ -139,7 +139,7 @@ public class EmployeeService {
         return employee[maxDepartmentSalaryId];
     }
 
-    public int sumDepartmentSalary() {
+    public int sumDepartmentSalary(String department) {
         int sumDepartmentSalary = 0;
         for (int i = 0; i < getSizeOfCompany(); i++) {
             if (department.equals(employee[i].getDepartment())) {
@@ -149,7 +149,7 @@ public class EmployeeService {
         return sumDepartmentSalary;
     }
 
-    public int countDepartmentEmployees() {
+    public int countDepartmentEmployees(String department) {
         int countDepartmentEmployees = 0;
         for (int i = 0; i < getSizeOfCompany(); i++) {
             if (department.equals(employee[i].getDepartment())) {
@@ -159,12 +159,12 @@ public class EmployeeService {
         return countDepartmentEmployees;
     }
 
-    public int averageDepartmentSalary() {
-        int averageDepartmentSalary = sumDepartmentSalary() / countDepartmentEmployees();
+    public int averageDepartmentSalary(String department) {
+        int averageDepartmentSalary = sumDepartmentSalary(department) / countDepartmentEmployees(department);
         return averageDepartmentSalary;
     }
 
-    public void setDepartmentSalaryOnPercent() {
+    public void setDepartmentSalaryOnPercent(String department) {
         int newSalary;
         for (int i = 0; i < getSizeOfCompany(); i++) {
             if (department.equals(employee[i].getDepartment())) {
@@ -174,12 +174,12 @@ public class EmployeeService {
         }
     }
 
-    public String printMinDepartmentSalary() {
-        return minDepartmentSalary().getFIO().toString() + ", зарплата " + new DecimalFormat("###,###").format(minDepartmentSalary().getSalary()) + " $ в месяц, id = " + minDepartmentSalary().getId();
+    public String printMinDepartmentSalary(String department) {
+        return minDepartmentSalary(department).getFIO().toString() + ", зарплата " + new DecimalFormat("###,###").format(minDepartmentSalary(department).getSalary()) + " $ в месяц, id = " + minDepartmentSalary(department).getId();
     }
 
-    public String printMaxDepartmentSalary() {
-        return maxDepartmentSalary().getFIO().toString() + ", зарплата " + new DecimalFormat("###,###").format(maxDepartmentSalary().getSalary()) + " $ в месяц, id = " + maxDepartmentSalary().getId();
+    public String printMaxDepartmentSalary(String department) {
+        return maxDepartmentSalary(department).getFIO().toString() + ", зарплата " + new DecimalFormat("###,###").format(maxDepartmentSalary(department).getSalary()) + " $ в месяц, id = " + maxDepartmentSalary(department).getId();
     }
 
     public void printDepartmentEmployees() {

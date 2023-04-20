@@ -76,23 +76,23 @@ public class Main {
         new EmployeeService(sizeOfCompany, employee).printEmployeesList();
 
         // Повышенная сложность - Сотрудник с минимальной зарплатой по отделу
-        System.out.println("Минимальная зарплата в отделе " + department + " у сотрудника " + new EmployeeService(sizeOfCompany, employee, department).printMinDepartmentSalary());
+        System.out.println("Минимальная зарплата в отделе " + department + " у сотрудника " + new EmployeeService(sizeOfCompany, employee).printMinDepartmentSalary(department));
         System.out.println();
 
         // Повышенная сложность - Сотрудник с максимальной зарплатой по отделу
-        System.out.println("Максимальная зарплата в отделе " + department + " у сотрудника " + new EmployeeService(sizeOfCompany, employee, department).printMaxDepartmentSalary());
+        System.out.println("Максимальная зарплата в отделе " + department + " у сотрудника " + new EmployeeService(sizeOfCompany, employee).printMaxDepartmentSalary(department));
         System.out.println();
 
         // Повышенная сложность - Сумма зарплат по отделу
-        System.out.println("Сумма зарплат по отделу " + department + " равна " + new DecimalFormat("###,###").format(new EmployeeService(sizeOfCompany, employee, department).sumDepartmentSalary()) + " $");
+        System.out.println("Сумма зарплат по отделу " + department + " равна " + new DecimalFormat("###,###").format(new EmployeeService(sizeOfCompany, employee).sumDepartmentSalary(department)) + " $");
         System.out.println();
 
         // Повышенная сложность - Среднюю зарплату по отделу
-        System.out.println("Средняя зарплата по отделу " + department + " равна " + new DecimalFormat("###,###").format(new EmployeeService(sizeOfCompany, employee, department).averageDepartmentSalary()) + " $");
+        System.out.println("Средняя зарплата по отделу " + department + " равна " + new DecimalFormat("###,###").format(new EmployeeService(sizeOfCompany, employee).averageDepartmentSalary(department)) + " $");
         System.out.println();
 
         // Повышенная сложность - Проиндексировать зарплату сотрудников отдела на %
-        new EmployeeService(sizeOfCompany, employee, department, departmentSalaryIndexationPercent).setDepartmentSalaryOnPercent();
+        new EmployeeService(sizeOfCompany, employee, department, departmentSalaryIndexationPercent).setDepartmentSalaryOnPercent(department);
         new EmployeeService(sizeOfCompany, employee).printEmployeesList();
 
         // Повышенная сложность - Напечатать всех сотрудников отдела
