@@ -10,8 +10,15 @@ public class EmployeeService {
 
     public EmployeeService(int sizeOfCompany, Employee[] employee) {
         this.sizeOfCompany = sizeOfCompany;
+        FIO defaultFio = new FIO("Фамилия", "Имя", "Отчество");
+        for (int i = 0; i < sizeOfCompany; i++) {
+            if (employee[i] == null) {
+                employee[i] = new Employee(defaultFio, "Отдел", 0);
+            }
+        }
         this.employee = employee;
     }
+
     public EmployeeService(int sizeOfCompany, Employee[] employee, int salaryIndexationPercent) {
         this.salaryIndexationPercent = salaryIndexationPercent;
         this.sizeOfCompany = sizeOfCompany;
@@ -51,6 +58,7 @@ public class EmployeeService {
         }
         return employee[minSalaryId];
     }
+
     public Employee maxSalaryEmployee() {
         int maxSalary = employee[0].getSalary();
         for (int i = 0; i < getSizeOfCompany(); i++) {
@@ -61,6 +69,7 @@ public class EmployeeService {
         }
         return employee[maxSalaryId];
     }
+
     public void setSalaryOnPercent() {
         int newSalary = 0;
         for (int i = 0; i < getSizeOfCompany(); i++) {

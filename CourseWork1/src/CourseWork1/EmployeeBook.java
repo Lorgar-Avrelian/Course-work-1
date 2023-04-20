@@ -85,12 +85,8 @@ public class EmployeeBook {
         int position = 0;
         for (int i = 0; i < employeeBook.length; i++) {
             FIO currentFIO = employeeBook[i].getFIO();
-            if (currentFIO.getSurname().equals(oldFIO.getSurname())) {
-                if (currentFIO.getName().equals(oldFIO.getName())) {
-                    if (currentFIO.getSurname().equals(oldFIO.getSurname())) {
-                        position = i;
-                    }
-                }
+            if (currentFIO.equals(oldFIO)) {
+                position = i;
             }
         }
         employeeBook[position].setSalary(salary);

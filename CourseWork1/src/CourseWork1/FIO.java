@@ -9,17 +9,17 @@ public class FIO {
 
     public FIO(String surname, String name, String secondName) {
         if (surname == null) {
-            this.surname = " ";
+            this.surname = "Фамилия";
         } else {
             this.surname = surname;
         }
         if (name == null) {
-            this.name = " ";
+            this.name = "Имя";
         } else {
             this.name = name;
         }
         if (secondName == null) {
-            this.secondName = " ";
+            this.secondName = "Отчество";
         } else {
             this.secondName = secondName;
         }
