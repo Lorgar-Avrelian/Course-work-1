@@ -2,9 +2,7 @@ package CourseWork1;
 
 public class EmployeeBook {
     private Employee[] employeeBook;
-    private static int idCounter;
     private String department;
-    private int id;
     private int salary;
     private String surname;
     private String name;
@@ -15,13 +13,11 @@ public class EmployeeBook {
     }
 
     public Employee[] createNewEmployee(String surname, String name, String secondName, String department, int salary) {
-        idCounter++;
         this.surname = surname;
         this.name = name;
         this.secondName = secondName;
         this.department = department;
         this.salary = salary;
-        this.id = idCounter;
         FIO defaultFIO = new FIO("Фамилия", "Имя", "Отчество");
         int position = 0;
         for (int i = 0; i < employeeBook.length; i++) {

@@ -28,16 +28,16 @@ public class Main {
         fio[9] = new FIO("Путин", "Владимир", "Владимирович");
 
         // Отделы: 1 - Боли, 2 - Мучений, 3 - Страданий, 4 - Ужаса, 5 - Горя
-        employee[0] = new Employee(fio[0],"1", random.nextInt(100_000));
-        employee[1] = new Employee(fio[1],"2", random.nextInt(100_000));
-        employee[2] = new Employee(fio[2],"1", random.nextInt(100_000));
-        employee[3] = new Employee(fio[3],"3", random.nextInt(100_000));
-        employee[4] = new Employee(fio[4],"4", random.nextInt(100_000));
-        employee[5] = new Employee(fio[5],"3", random.nextInt(100_000));
-        employee[6] = new Employee(fio[6],"5", random.nextInt(100_000));
-        employee[7] = new Employee(fio[7],"5", random.nextInt(100_000));
-        employee[8] = new Employee(fio[8],"4", random.nextInt(100_000));
-        employee[9] = new Employee(fio[9],"2", random.nextInt(100_000));
+        employee[0] = new Employee(fio[0], "1", random.nextInt(100_000));
+        employee[1] = new Employee(fio[1], "2", random.nextInt(100_000));
+        employee[2] = new Employee(fio[2], "1", random.nextInt(100_000));
+        employee[3] = new Employee(fio[3], "3", random.nextInt(100_000));
+        employee[4] = new Employee(fio[4], "4", random.nextInt(100_000));
+        employee[5] = new Employee(fio[5], "3", random.nextInt(100_000));
+        employee[6] = new Employee(fio[6], "5", random.nextInt(100_000));
+        employee[7] = new Employee(fio[7], "5", random.nextInt(100_000));
+        employee[8] = new Employee(fio[8], "4", random.nextInt(100_000));
+        employee[9] = new Employee(fio[9], "2", random.nextInt(100_000));
 
         System.out.println("Базовый уровень");
         System.out.println();
@@ -76,41 +76,41 @@ public class Main {
         new EmployeeService(sizeOfCompany, employee).printEmployeesList();
 
         // Повышенная сложность - Сотрудник с минимальной зарплатой по отделу
-        System.out.println("Минимальная зарплата в отделе " + department + " у сотрудника " + new EmployeeDepartmentService(sizeOfCompany, employee, department).printMinDepartmentSalary());
+        System.out.println("Минимальная зарплата в отделе " + department + " у сотрудника " + new EmployeeService(sizeOfCompany, employee, department).printMinDepartmentSalary());
         System.out.println();
 
         // Повышенная сложность - Сотрудник с максимальной зарплатой по отделу
-        System.out.println("Максимальная зарплата в отделе " + department + " у сотрудника " + new EmployeeDepartmentService(sizeOfCompany, employee, department).printMaxDepartmentSalary());
+        System.out.println("Максимальная зарплата в отделе " + department + " у сотрудника " + new EmployeeService(sizeOfCompany, employee, department).printMaxDepartmentSalary());
         System.out.println();
 
         // Повышенная сложность - Сумма зарплат по отделу
-        System.out.println("Сумма зарплат по отделу " + department + " равна " + new DecimalFormat("###,###").format(new EmployeeDepartmentService(sizeOfCompany, employee, department).sumDepartmentSalary()) + " $");
+        System.out.println("Сумма зарплат по отделу " + department + " равна " + new DecimalFormat("###,###").format(new EmployeeService(sizeOfCompany, employee, department).sumDepartmentSalary()) + " $");
         System.out.println();
 
         // Повышенная сложность - Среднюю зарплату по отделу
-        System.out.println("Средняя зарплата по отделу " + department + " равна " + new DecimalFormat("###,###").format(new EmployeeDepartmentService(sizeOfCompany, employee, department).averageDepartmentSalary()) + " $");
+        System.out.println("Средняя зарплата по отделу " + department + " равна " + new DecimalFormat("###,###").format(new EmployeeService(sizeOfCompany, employee, department).averageDepartmentSalary()) + " $");
         System.out.println();
 
         // Повышенная сложность - Проиндексировать зарплату сотрудников отдела на %
-        new EmployeeDepartmentService(sizeOfCompany, employee,department,departmentSalaryIndexationPercent).setDepartmentSalaryOnPercent();
+        new EmployeeService(sizeOfCompany, employee, department, departmentSalaryIndexationPercent).setDepartmentSalaryOnPercent();
         new EmployeeService(sizeOfCompany, employee).printEmployeesList();
 
         // Повышенная сложность - Напечатать всех сотрудников отдела
         System.out.println("Перечень сотрудников отдела " + department);
-        new EmployeeDepartmentService(sizeOfCompany, employee, department).printDepartmentEmployees();
+        new EmployeeService(sizeOfCompany, employee, department).printDepartmentEmployees();
 
         // Повышенная сложность - Вывод всех сотрудников с зарплатой меньше числа
-        new EmployeeDepartmentService(departmentSalaryBorder, sizeOfCompany, employee, department).showLessSalary();
+        new EmployeeService(departmentSalaryBorder, sizeOfCompany, employee, department).showLessSalary();
 
         // Повышенная сложность - Вывод всех сотрудников с зарплатой больше (или равно) числа
-        new EmployeeDepartmentService(departmentSalaryBorder, sizeOfCompany, employee, department).showAboveSalary();
+        new EmployeeService(departmentSalaryBorder, sizeOfCompany, employee, department).showAboveSalary();
 
         System.out.println();
         System.out.println("Очень сложно");
         System.out.println();
 
         // Очень сложно - Перенести данные о сотрудниках в класс EmployeeBook
-        Employee [] employeeBook = new Employee[sizeOfCompany];
+        Employee[] employeeBook = new Employee[sizeOfCompany];
         System.arraycopy(employee, 0, employeeBook, 0, sizeOfCompany);
         new EmployeeBook(employeeBook);
         new EmployeeService(sizeOfCompany, employeeBook).printEmployeesList();
