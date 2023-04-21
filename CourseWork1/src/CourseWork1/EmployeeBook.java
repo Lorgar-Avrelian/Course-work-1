@@ -2,22 +2,13 @@ package CourseWork1;
 
 public class EmployeeBook {
     private Employee[] employeeBook;
-    private String department;
-    private int salary;
-    private String surname;
-    private String name;
-    private String secondName;
 
     public EmployeeBook(Employee[] employeeBook) {
         this.employeeBook = employeeBook;
     }
 
     public Employee[] createNewEmployee(String surname, String name, String secondName, String department, int salary) {
-        this.surname = surname;
-        this.name = name;
-        this.secondName = secondName;
-        this.department = department;
-        this.salary = salary;
+
         FIO defaultFIO = new FIO("Фамилия", "Имя", "Отчество");
         int position = 0;
         for (int i = 0; i < employeeBook.length; i++) {
@@ -47,9 +38,6 @@ public class EmployeeBook {
     }
 
     public Employee[] deleteOldEmployee(String surname, String name, String secondName) {
-        this.surname = surname;
-        this.name = name;
-        this.secondName = secondName;
         FIO oldFIO = new FIO(surname, name, secondName);
         int position = 0;
         for (int i = 0; i < employeeBook.length; i++) {
@@ -73,10 +61,6 @@ public class EmployeeBook {
     }
 
     public Employee[] changeEmployeeSalary(String surname, String name, String secondName, int salary) {
-        this.surname = surname;
-        this.name = name;
-        this.secondName = secondName;
-        this.salary = salary;
         FIO oldFIO = new FIO(surname, name, secondName);
         int position = 0;
         for (int i = 0; i < employeeBook.length; i++) {
@@ -92,10 +76,6 @@ public class EmployeeBook {
     }
 
     public Employee[] changeEmployeeDepartment(String surname, String name, String secondName, String department) {
-        this.surname = surname;
-        this.name = name;
-        this.secondName = secondName;
-        this.department = department;
         FIO oldFIO = new FIO(surname, name, secondName);
         int position = 0;
         for (int i = 0; i < employeeBook.length; i++) {

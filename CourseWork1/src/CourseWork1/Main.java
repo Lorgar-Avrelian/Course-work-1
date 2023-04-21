@@ -73,7 +73,6 @@ public class Main {
 
         // Повышенная сложность - Проиндексировать зарплату на %
         new EmployeeService(sizeOfCompany, employee, salaryIndexationPercent).setSalaryOnPercent();
-        new EmployeeService(sizeOfCompany, employee).printEmployeesList();
 
         // Повышенная сложность - Сотрудник с минимальной зарплатой по отделу
         System.out.println("Минимальная зарплата в отделе " + department + " у сотрудника " + new EmployeeService(sizeOfCompany, employee).printMinDepartmentSalary(department));
@@ -93,11 +92,9 @@ public class Main {
 
         // Повышенная сложность - Проиндексировать зарплату сотрудников отдела на %
         new EmployeeService(sizeOfCompany, employee, department, departmentSalaryIndexationPercent).setDepartmentSalaryOnPercent(department);
-        new EmployeeService(sizeOfCompany, employee).printEmployeesList();
 
         // Повышенная сложность - Напечатать всех сотрудников отдела
         System.out.println("Перечень сотрудников отдела " + department);
-        new EmployeeService(sizeOfCompany, employee, department).printDepartmentEmployees();
 
         // Повышенная сложность - Вывод всех сотрудников с зарплатой меньше числа
         new EmployeeService(departmentSalaryBorder, sizeOfCompany, employee, department).showLessSalary();
@@ -112,23 +109,17 @@ public class Main {
         // Очень сложно - Перенести данные о сотрудниках в класс EmployeeBook
         Employee[] employeeBook = new Employee[sizeOfCompany];
         System.arraycopy(employee, 0, employeeBook, 0, sizeOfCompany);
-        new EmployeeBook(employeeBook);
-        new EmployeeService(sizeOfCompany, employeeBook).printEmployeesList();
 
         // Очень сложно - Добавление нового сотрудника
         employeeBook = new EmployeeBook(employeeBook).createNewEmployee("Ленин", "Владимир", "Ильич", "2", random.nextInt(100_000));
-        new EmployeeBook(employeeBook).printEmployeeBook();
 
         // Очень сложно - Удаление старого сотрудника по ФИО
         employeeBook = new EmployeeBook(employeeBook).deleteOldEmployee("Путин", "Владимир", "Владимирович");
-        new EmployeeBook(employeeBook).printEmployeeBook();
 
         // Очень сложно - Изменение зарплаты сотрудника
         employeeBook = new EmployeeBook(employeeBook).changeEmployeeSalary("Ленин", "Владимир", "Ильич", 20_000);
-        new EmployeeBook(employeeBook).printEmployeeBook();
 
         // Очень сложно - Изменение отдела сотрудника
         employeeBook = new EmployeeBook(employeeBook).changeEmployeeDepartment("Ленин", "Владимир", "Ильич", "1");
-        new EmployeeBook(employeeBook).printEmployeeBook();
     }
 }
