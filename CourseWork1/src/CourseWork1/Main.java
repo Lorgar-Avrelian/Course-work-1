@@ -121,5 +121,6 @@ public class Main {
 
         // Очень сложно - Изменение отдела сотрудника
         employeeBook = new EmployeeBook(employeeBook).changeEmployeeDepartment("Ленин", "Владимир", "Ильич", "1");
+        new EmployeeBook(employeeBook).printEmployeeBook();
     }
 }
