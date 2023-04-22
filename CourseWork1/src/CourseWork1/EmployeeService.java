@@ -29,12 +29,6 @@ public class EmployeeService {
         this.employee = employee;
     }
 
-    public EmployeeService(int sizeOfCompany, Employee[] employee, String department) {
-        this.sizeOfCompany = sizeOfCompany;
-        this.employee = employee;
-        this.department = department;
-    }
-
     public EmployeeService(int sizeOfCompany, Employee[] employee, String department, int salaryIndexationPercent) {
         this.sizeOfCompany = sizeOfCompany;
         this.employee = employee;
@@ -64,7 +58,6 @@ public class EmployeeService {
     public String getDepartment() {
         return department;
     }
-
 
     public void printEmployeesList() {
         for (int i = 0; i < getSizeOfCompany(); i++) {
@@ -180,15 +173,6 @@ public class EmployeeService {
 
     public String printMaxDepartmentSalary(String department) {
         return maxDepartmentSalary(department).getFIO().toString() + ", зарплата " + new DecimalFormat("###,###").format(maxDepartmentSalary(department).getSalary()) + " $ в месяц, id = " + maxDepartmentSalary(department).getId();
-    }
-
-    public void printDepartmentEmployees() {
-        for (int i = 0; i < getSizeOfCompany(); i++) {
-            if (getDepartment().equals(employee[i].getDepartment())) {
-                System.out.println(employee[i].getFIO().toString() + ", зарплата " + new DecimalFormat("###,###").format(employee[i].getSalary()) + " $ в месяц, id = " + employee[i].getId());
-            }
-        }
-        System.out.println();
     }
 
     public void showLessSalary() {

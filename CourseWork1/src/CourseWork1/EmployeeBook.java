@@ -89,11 +89,4 @@ public class EmployeeBook {
         System.out.println();
         return employeeBook;
     }
-
-    public void printEmployeeBook() {
-        for (int i = 0; i < employeeBook.length; i++) {
-            System.out.println(employeeBook[i].toString());
-        }
-        System.out.println();
-    }
 }

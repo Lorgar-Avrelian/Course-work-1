@@ -15,7 +15,7 @@ public class Main {
         Employee[] employee = new Employee[sizeOfCompany];
         System.out.println();
 
-        // Cотрудники ООО "Демоны ада"
+        // Сотрудники ООО "Демоны ада"
         fio[0] = new FIO("Гитлер", "Адольф", "Алоис");
         fio[1] = new FIO("Сталин", "Иосиф", "Виссарионович");
         fio[2] = new FIO("Муссолини", "Бенито", "Алессандро");
